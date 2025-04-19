@@ -33,6 +33,7 @@ function OtpInput() {
     if (pastedData.length === 6 && !isNaN(pastedData)) {
       let splitOtp = pastedData.split("");
       setInputArray(splitOtp);
+      refs[otpLength - 1].current.focus();
     }
   };
 
@@ -58,7 +59,9 @@ function OtpInput() {
           ></input>
         ))}
       </div>
-      <button style={{ margin: "20px 0 0 0" }}>Submit</button>
+      <button className="submit" disabled={inputArray.includes("")}>
+        Submit
+      </button>
     </div>
   );
 }
